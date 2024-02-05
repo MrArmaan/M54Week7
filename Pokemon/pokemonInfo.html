@@ -100,7 +100,7 @@
             pokemonImage.alt = pokemonData.name;
 
             const pokemonName = document.createElement("p");
-            pokemonName.textContent = pokemonData.name;
+            pokemonName.textContent = capitalizeFirstLetter(pokemonData.name);
 
             const pokedexEntry = document.createElement("p");
             pokedexEntry.textContent = `Pokedex Entry: ${pokedexEntryData.flavor_text_entries[0].flavor_text}`;
@@ -111,11 +111,16 @@
 
             container.appendChild(pokemonCard);
 
-            if ((i + 1) % 4 === 0) {
+            if ((i + 1) % 5 === 0) {
               container.appendChild(document.createElement("br"));
             }
           }
         }
+
+        function capitalizeFirstLetter(string) {
+          return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
         getPokemonData();
       </script>
     </div>
